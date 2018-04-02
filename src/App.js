@@ -55,7 +55,7 @@ class App extends Component {
               <h4>
                 {todo.todoTitle}{" "}
                 <small>
-                  <span className="label">{todo.todoPriority}</span>
+                  <span>{todo.todoPriority}</span>
                 </small>
               </h4>
               <p>
