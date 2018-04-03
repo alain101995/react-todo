@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./TodoInput.css";
-import axios from 'axios';
+import axios from "axios";
 
 class TodoInput extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class TodoInput extends Component {
       todoResponsible: "",
       todoDescription: "",
       todoPriority: "Lowest",
-      tasks: "",
+      tasks: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,14 +34,22 @@ class TodoInput extends Component {
     });
   }
   componentDidMount() {
-    axios.get('http://localhost:3000/api/tasks')
-    .then(response => {
-      console.log(response);
-      this.setState({ tasks: response });
-      console.log('Tasks', this.state.tasks);
-    }).catch((error) => {
-      console.log(error);
-    });
+    // axios.get('http://localhost:3000/api/tasks')
+    // .then(response => {
+    //   console.log(response);
+    //   this.setState({ tasks: response });
+    //   console.log('Tasks', this.state.tasks);
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
+    axios
+      .post("http://localhost:3000/api/tasks")
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
   render() {
     return (
@@ -49,9 +57,7 @@ class TodoInput extends Component {
         <h4>Add New Todo</h4>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label className="col-sm-2 control-label">
-              Todo
-            </label>
+            <label className="col-sm-2 control-label">Todo</label>
             <div className="col-sm-10">
               <input
                 name="todoTitle"
@@ -64,11 +70,7 @@ class TodoInput extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label
-              className="col-sm-2 control-label"
-            >
-              Responsible
-            </label>
+            <label className="col-sm-2 control-label">Responsible</label>
             <div className="col-sm-10">
               <input
                 name="todoResponsible"
@@ -93,11 +95,7 @@ class TodoInput extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label
-              className="col-sm-2 control-label"
-            >
-              Priority
-            </label>
+            <label className="col-sm-2 control-label">Priority</label>
             <div className="col-sm-10">
               <select
                 name="todoPriority"
@@ -115,9 +113,7 @@ class TodoInput extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-offset-2 col-sm-10">
-              <button type="submit">
-                Add Todo
-              </button>
+              <button type="submit">Add Todo</button>
             </div>
           </div>
         </form>
