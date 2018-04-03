@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./TodoInput.css";
+import axios from 'axios';
 
 class TodoInput extends Component {
   constructor(props) {
@@ -29,6 +30,14 @@ class TodoInput extends Component {
       todoResponsible: "",
       todoDescription: "",
       todoPriority: "Lowest"
+    });
+  }
+  componentDidMount() {
+    axios.get('http://localhost:3000/api/tasks')
+    .then(response => {
+      console.log(response);
+    }).catch((error) => {
+      console.log(error);
     });
   }
   render() {
