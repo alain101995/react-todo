@@ -64,7 +64,7 @@ class App extends Component {
               </p>
               <p>{todo.todoDescription}</p>
               <button
-                onClick={this.handleRemoveTodo.bind(this, index)}
+                onClick={() => this.handleRemoveTodo(index)}
               >
                 <span
                   aria-hidden="true"

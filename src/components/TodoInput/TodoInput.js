@@ -9,7 +9,8 @@ class TodoInput extends Component {
       todoTitle: "",
       todoResponsible: "",
       todoDescription: "",
-      todoPriority: "Lowest"
+      todoPriority: "Lowest",
+      tasks: "",
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,6 +37,8 @@ class TodoInput extends Component {
     axios.get('http://localhost:3000/api/tasks')
     .then(response => {
       console.log(response);
+      this.setState({ tasks: response });
+      console.log('Tasks', this.state.tasks);
     }).catch((error) => {
       console.log(error);
     });
@@ -46,7 +49,7 @@ class TodoInput extends Component {
         <h4>Add New Todo</h4>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label htmlFor="inputTodoTitle" className="col-sm-2 control-label">
+            <label className="col-sm-2 control-label">
               Todo
             </label>
             <div className="col-sm-10">
@@ -54,7 +57,6 @@ class TodoInput extends Component {
                 name="todoTitle"
                 type="text"
                 className="form-control"
-                id="inputTodoTitle"
                 value={this.state.todoTitle}
                 onChange={this.handleInputChange}
                 placeholder="Title"
@@ -63,7 +65,6 @@ class TodoInput extends Component {
           </div>
           <div className="form-group">
             <label
-              htmlFor="inputTodoResponsible"
               className="col-sm-2 control-label"
             >
               Responsible
@@ -73,7 +74,6 @@ class TodoInput extends Component {
                 name="todoResponsible"
                 type="text"
                 className="form-control"
-                id="inputTodoResponsible"
                 value={this.state.todoResponsible}
                 onChange={this.handleInputChange}
                 placeholder="Responsible"
@@ -86,7 +86,7 @@ class TodoInput extends Component {
               <textarea
                 name="todoDescription"
                 className="form-control"
-                rows="3"
+                rows="2"
                 value={this.state.todoDescription}
                 onChange={this.handleInputChange}
               />
@@ -94,7 +94,6 @@ class TodoInput extends Component {
           </div>
           <div className="form-group">
             <label
-              htmlFor="inputTodoPriority"
               className="col-sm-2 control-label"
             >
               Priority
@@ -103,7 +102,6 @@ class TodoInput extends Component {
               <select
                 name="todoPriority"
                 className="form-control"
-                id="inputTodoPriority"
                 value={this.state.todoPriority}
                 onChange={this.handleInputChange}
               >
