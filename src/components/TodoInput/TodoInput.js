@@ -19,9 +19,9 @@ class TodoInput extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    this.setState({
-      [name]: value
-    });
+    // this.setState({ [event.target.name]: event.target.value })
+    // console.log("Target values", event.target.name, event.target.value);
+    this.setState({ [name]: value });
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -34,22 +34,50 @@ class TodoInput extends Component {
     });
   }
   componentDidMount() {
-    // axios.get('http://localhost:3000/api/tasks')
-    // .then(response => {
-    //   console.log(response);
-    //   this.setState({ tasks: response });
-    //   console.log('Tasks', this.state.tasks);
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
+    //READ
+    // axios
+    //   .get("http://localhost:3000/api/tasks")
+    //   .then(response => {
+    //     this.setState({ tasks: response });
+    //     console.log("All task", this.state.tasks.data.data);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+    // INSERT
+    // const taskData = {
+    //   // taskID: 1,
+    //   userID: 1,
+    //   title: "To code",
+    //   description: "Code",
+    //   dueDate: "2018-12-22T08:15:00Z",
+    //   createdDate: "2017-12-22T08:15:00Z",
+    //   completedDate: "2018-11-22T08:15:00Z",
+    //   completed: false
+    // };
+    // axios
+    //   .post("http://localhost:3000/api/tasks", { taskData })
+    //   .then(response => {
+    //     console.log(response);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+    //DELETE
+    const dataToDelete = {
+      id: "5ac53edaa6e4bf12c6280421"
+    };
     axios
-      .post("http://localhost:3000/api/tasks")
+      .delete("http://localhost:3000/api/tasks", dataToDelete)
       .then(response => {
         console.log(response);
       })
       .catch(error => {
         console.log(error);
       });
+  }
+  componentDidUpdate() {
+    console.log(this.state.todoTitle);
   }
   render() {
     return (
