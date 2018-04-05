@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./TodoInput.css";
 import axios from "axios";
-
 class TodoInput extends Component {
   constructor(props) {
     super(props);
@@ -41,10 +40,10 @@ class TodoInput extends Component {
     //     this.setState({ tasks: response });
     //     console.log("All task", this.state.tasks.data.data);
     //   })
-    //   .catch(error => {
+    // .catch(error => {
     //     console.log(error);
     //   });
-    // INSERT
+    // CREATE
     // const taskData = {
     //   // taskID: 1,
     //   userID: 1,
@@ -64,17 +63,17 @@ class TodoInput extends Component {
     //     console.log(error);
     //   });
     //DELETE
-    const dataToDelete = {
-      id: "5ac53edaa6e4bf12c6280421"
-    };
-    axios
-      .delete("http://localhost:3000/api/tasks", dataToDelete)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    // const dataToDelete = {
+    //   id: "5ac53edaa6e4bf12c6280421"
+    // };
+    // axios
+    //   .delete("http://localhost:3000/api/tasks", dataToDelete)
+    //   .then(response => {
+    //     console.log(response);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }
   componentDidUpdate() {
     console.log(this.state.todoTitle);
