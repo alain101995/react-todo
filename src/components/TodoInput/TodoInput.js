@@ -33,16 +33,12 @@ class TodoInput extends Component {
     });
   }
   componentDidMount() {
+    // TASKS---
     //READ
-    // axios
-    //   .get("http://localhost:3000/api/tasks")
-    //   .then(response => {
-    //     this.setState({ tasks: response });
-    //     console.log("All task", this.state.tasks.data.data);
-    //   })
-    // .catch(error => {
-    //     console.log(error);
-    //   });
+    // axios.get("http://localhost:3000/api/tasks").then(response => {
+    //   this.setState({ tasks: response });
+    //   console.log("All task", this.state.tasks.data.data);
+    // });
     // CREATE
     // const taskData = {
     //   // taskID: 1,
@@ -54,25 +50,57 @@ class TodoInput extends Component {
     //   completedDate: "2018-11-22T08:15:00Z",
     //   completed: false
     // };
+    // const sendTask = this.state.newTask;
+    // console.log("send", sendTask);
     // axios
     //   .post("http://localhost:3000/api/tasks", { taskData })
     //   .then(response => {
     //     console.log(response);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
     //   });
     //DELETE
     // const dataToDelete = {
-    //   id: "5ac53edaa6e4bf12c6280421"
+    //   id: "5ac7ab672b9f5c093f8c0349"
     // };
     // axios
-    //   .delete("http://localhost:3000/api/tasks", dataToDelete)
+    //   .delete("http://localhost:3000/api/tasks", {
+    //     data: {
+    //       dataToDelete
+    //     }
+    //   })
     //   .then(response => {
     //     console.log(response);
+    //   });
+    // USERS--
+    // READ
+    // axios.get("http://localhost:3000/api/users").then(response => {
+    //   console.log("Response", response.data.data);
+    // CREATE
+    //   const userData = {
+    //     firstName: "Alain",
+    //     lastName: "Quiroz",
+    //     phones: ["3471857195", "7541915091"],
+    //     emails: ["alain@mail.com", "victor@correo.com"]
+    //   };
+    //   // const sendUser = this.state.newTask;
+    //   // console.log("send", sendTask);
+    //   axios
+    //     .post("http://localhost:3000/api/users", { userData })
+    //     .then(response => {
+    //       console.log(response);
+    //     });
+    // });
+    //DELETE
+    // const dataToDelete = {
+    //   id: "5ac7dc757f21d252dfa2fe2d"
+    // };
+    // axios
+    //   .delete("http://localhost:3000/api/users", {
+    //     data: {
+    //       dataToDelete
+    //     }
     //   })
-    //   .catch(error => {
-    //     console.log(error);
+    //   .then(response => {
+    //     console.log(response);
     //   });
   }
   componentDidUpdate() {

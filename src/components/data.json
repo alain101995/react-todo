@@ -1,5 +1,4 @@
 {
-    "taskID": 1,
     "userID": 1,
     "title": "To code",
     "description": "Code",
@@ -10,7 +9,6 @@
 }
 
 {
-    "userID": 1,
     "firstName": "Alain",
     "lastName": "Quiroz",
     "phones": ["3471857195", "7541915091"],

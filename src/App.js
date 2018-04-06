@@ -3,7 +3,7 @@ import TodoInput from "./components/TodoInput/TodoInput";
 import axios from "axios";
 import "./App.css";
 
-var todos = [
+let todos = [
   {
     todoTitle: "Refactor",
     todoResponsible: "Victor",
@@ -60,7 +60,7 @@ class App extends Component {
         <TodoInput onAddTodo={this.handleAddTodo} />
         <hr />
         <h4>
-          Todo Count: <span>{this.state.tasks && this.state.tasks.length}</span>
+          Todo Count: <span>{this.state.todos.length}</span>
         </h4>
         <ul>
           {this.state.todos.map((todo, index) => (
