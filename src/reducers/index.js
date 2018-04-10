@@ -1,18 +1,8 @@
-import { ADD_ARTICLE } from "../constants/action-types";
+import { combineReducers } from "redux";
+import usersReducer from "./usersReducer";
 
-const initialState = {
-  articles: []
-};
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_ARTICLE:
-      return {
-        ...state,
-        articles: [...state.articles, action.payload]
-      };
-    default:
-      return state;
-  }
-};
+const rootReducer = combineReducers({
+  usersReducer
+});
 
 export default rootReducer;
