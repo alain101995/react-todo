@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./TodoInput.css";
-import axios from "axios";
+// import axios from "axios";
+// import App from "../../containers/App";
 class TodoInput extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +33,9 @@ class TodoInput extends Component {
       todoPriority: "Lowest"
     });
   }
+  componentWillReceiveProps() {}
   componentDidMount() {
+    console.log(this.props);
     // TASKS---
     //READ
     // axios.get("http://localhost:3000/api/tasks").then(response => {
@@ -104,7 +107,7 @@ class TodoInput extends Component {
     //   });
   }
   componentDidUpdate() {
-    console.log(this.state.todoTitle);
+    console.log(this.props);
   }
   render() {
     return (

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
 import axios from "axios";
 import "./App.css";
-import Users from "./components/Users/Users";
+// import Users from "./components/Users/Users";
 let todos = [
   {
     todoTitle: "Refactor",
@@ -28,7 +28,10 @@ class App extends Component {
     this.handleAddTodo = this.handleAddTodo.bind(this);
     this.handleRemoveTodo = this.handleRemoveTodo.bind(this);
   }
-
+  componentWillMount() {
+    this.props.getTasks();
+    console.log("PROPS", this.props);
+  }
   componentDidMount() {
     // axios
     //   .get("http://localhost:3000/api/tasks")
