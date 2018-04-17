@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import "./TodoInput.css";
-// import axios from "axios";
-// import App from "../../containers/App";
 class TodoInput extends Component {
   constructor(props) {
     super(props);
@@ -34,78 +32,7 @@ class TodoInput extends Component {
     });
   }
   componentWillReceiveProps() {}
-  componentDidMount() {
-    console.log(this.props);
-    // TASKS---
-    //READ
-    // axios.get("http://localhost:3000/api/tasks").then(response => {
-    //   this.setState({ tasks: response });
-    //   console.log("All task", this.state.tasks.data.data);
-    // });
-    // CREATE
-    // const taskData = {
-    //   // taskID: 1,
-    //   userID: 1,
-    //   title: "To code",
-    //   description: "Code",
-    //   dueDate: "2018-12-22T08:15:00Z",
-    //   createdDate: "2017-12-22T08:15:00Z",
-    //   completedDate: "2018-11-22T08:15:00Z",
-    //   completed: false
-    // };
-    // const sendTask = this.state.newTask;
-    // console.log("send", sendTask);
-    // axios
-    //   .post("http://localhost:3000/api/tasks", { taskData })
-    //   .then(response => {
-    //     console.log(response);
-    //   });
-    //DELETE
-    // const dataToDelete = {
-    //   id: "5ac7ab672b9f5c093f8c0349"
-    // };
-    // axios
-    //   .delete("http://localhost:3000/api/tasks", {
-    //     data: {
-    //       dataToDelete
-    //     }
-    //   })
-    //   .then(response => {
-    //     console.log(response);
-    //   });
-    // USERS--
-    // READ
-    // axios.get("http://localhost:3000/api/users").then(response => {
-    //   console.log("Response", response.data.data);
-    // CREATE
-    //   const userData = {
-    //     firstName: "Alain",
-    //     lastName: "Quiroz",
-    //     phones: ["3471857195", "7541915091"],
-    //     emails: ["alain@mail.com", "victor@correo.com"]
-    //   };
-    //   // const sendUser = this.state.newTask;
-    //   // console.log("send", sendTask);
-    //   axios
-    //     .post("http://localhost:3000/api/users", { userData })
-    //     .then(response => {
-    //       console.log(response);
-    //     });
-    // });
-    //DELETE
-    // const dataToDelete = {
-    //   id: "5ac7dc757f21d252dfa2fe2d"
-    // };
-    // axios
-    //   .delete("http://localhost:3000/api/users", {
-    //     data: {
-    //       dataToDelete
-    //     }
-    //   })
-    //   .then(response => {
-    //     console.log(response);
-    //   });
-  }
+
   componentDidUpdate() {
     console.log(this.props);
   }

@@ -3,10 +3,12 @@ import App from "../App";
 import * as actions from "../actions/index";
 
 const mapStateToProps = state => {
-  const tasks = this.props;
+  const tasks = state;
+  // const createTasks = state;
   return {
     // tasks: state.tasks
     tasks
+    // createTasks
   };
 };
 
@@ -14,6 +16,12 @@ const mapDispatchToProps = dispatch => {
   return {
     getTasks: () => {
       dispatch(actions.getTasks());
+    },
+    createTasks: () => {
+      dispatch(actions.createTask());
+    },
+    deleteTasks: () => {
+      dispatch(actions.deleteTask());
     }
   };
 };

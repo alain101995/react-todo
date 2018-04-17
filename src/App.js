@@ -23,7 +23,7 @@ class App extends Component {
     super(props);
     this.state = {
       todos,
-      tasks: undefined
+      tasks: {}
     };
     this.handleAddTodo = this.handleAddTodo.bind(this);
     this.handleRemoveTodo = this.handleRemoveTodo.bind(this);
@@ -42,6 +42,15 @@ class App extends Component {
     //   .catch(error => {
     //     console.log(error);
     //   });
+  }
+
+  componentWillReceiveProps(next) {
+    console.log(next);
+    console.log("TASKS", next.tasks.Tasks.tasks[0]);
+    if (next.tasks.Tasks.tasks[0]) {
+      this.setState({ tasks: next.tasks.Tasks.tasks[0] });
+      console.log("STATE TASKS", this.state.tasks);
+    }
   }
 
   handleAddTodo(todo) {
