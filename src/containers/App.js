@@ -1,13 +1,14 @@
 import { connect } from "react-redux";
 import App from "../App";
 import * as actions from "../actions/index";
+import { Tasks } from "../reducers/tasks";
 
 const mapStateToProps = state => {
   const tasks = state;
-  // const createTasks = state;
+  // console.log("STATES ACTION", tasks, createTasks);
   return {
-    // tasks: state.tasks
     tasks
+    // tasks
     // createTasks
   };
 };

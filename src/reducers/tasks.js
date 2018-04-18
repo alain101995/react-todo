@@ -23,7 +23,7 @@ export const Tasks = (state = {}, action) => {
     case DELETE_TASKS:
       return {
         ...state,
-        taskCreated: [...state, action.payload]
+        taskDeleted: [...state, action.payload]
       };
     default:
       return state;
