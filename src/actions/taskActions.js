@@ -6,8 +6,7 @@ import {
 } from "../constants/actionTypes";
 
 const taskData = {
-  // taskID: 1,
-  userID: 1,
+  // userID: 1,
   title: "To code",
   description: "Code",
   priority: "Low",
@@ -18,7 +17,7 @@ const taskData = {
 };
 
 const taskID = {
-  id: "5ac7ab672b9f5c093f8c0349"
+  _id: "5ada1b0e2bf6cd0655dfae5c"
 };
 
 export const getTasks = () => {
@@ -32,22 +31,21 @@ export const getTasks = () => {
   };
 };
 
-export const createTask = () => {
+export const createTasks = () => {
   return (dispatch, getState) => {
     axios
       .post("http://localhost:3000/api/tasks", { taskData })
       .then(response => {
-        // console.log("RESPONSE", response.data);
         dispatch({ type: CREATE_TASKS, payload: response.data });
       })
       .catch(err => console.log(err));
   };
 };
 
-export const deleteTask = () => {
+export const deleteTasks = () => {
   return (dispatch, getState) => {
     axios
-      .delete("http://localhost:3000/api/tasks", { taskID })
+      .delete("http://localhost:3000/api/tasks", { data: { taskID } })
       .then(response => {
         dispatch({ type: DELETE_TASKS, payload: response.data });
       })

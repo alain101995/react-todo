@@ -21,8 +21,8 @@ render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
+        <Route exact path="/" component={App} />
         <Route exact path="/login" component={App} />
-        <Route path="/" component={App} />
       </Switch>
     </Router>
   </Provider>,

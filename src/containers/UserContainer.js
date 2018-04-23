@@ -1,27 +1,24 @@
 // import { connect } from "react-redux";
-// import App from "../App";
+// import App from "../App"; // Component where props will be sent.
 // import * as actions from "../actions/index";
 
 // const mapStateToProps = state => {
-//   const tasks = state;
-//   const createTasks = state;
+//   const users = state;
 //   return {
-//     // tasks: state.tasks
-//     tasks,
-//     createTasks
+//     users
 //   };
 // };
 
 // const mapDispatchToProps = dispatch => {
 //   return {
-//     getTasks: () => {
-//       dispatch(actions.getTasks());
+//     getUsers: () => {
+//       dispatch(actions.getUsers());
 //     },
-//     createTasks: () => {
-//       dispatch(actions.createTask());
+//     createUser: () => {
+//       dispatch(actions.createUsers());
 //     },
-//     deleteTasks: () => {
-//       dispatch(actions.deleteTask());
+//     deleteUsers: () => {
+//       dispatch(actions.deleteUsers());
 //     }
 //   };
 // };

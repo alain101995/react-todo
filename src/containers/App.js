@@ -1,15 +1,11 @@
 import { connect } from "react-redux";
 import App from "../App";
 import * as actions from "../actions/index";
-import { Tasks } from "../reducers/tasks";
 
 const mapStateToProps = state => {
   const tasks = state;
-  // console.log("STATES ACTION", tasks, createTasks);
   return {
     tasks
-    // tasks
-    // createTasks
   };
 };
 
@@ -19,10 +15,19 @@ const mapDispatchToProps = dispatch => {
       dispatch(actions.getTasks());
     },
     createTasks: () => {
-      dispatch(actions.createTask());
+      dispatch(actions.createTasks());
     },
     deleteTasks: () => {
-      dispatch(actions.deleteTask());
+      dispatch(actions.deleteTasks());
+    },
+    getUsers: () => {
+      dispatch(actions.getUsers());
+    },
+    createUsers: () => {
+      dispatch(actions.createUsers());
+    },
+    deleteUsers: () => {
+      dispatch(actions.deleteUsers());
     }
   };
 };
