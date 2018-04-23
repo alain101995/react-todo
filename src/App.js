@@ -1,26 +1,26 @@
 import React, { Component } from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
 import "./App.css";
-let todos = [
-  {
-    todoTitle: "Refactor",
-    todoResponsible: "Victor",
-    todoDescription: "Todo description",
-    todoPriority: "low"
-  },
-  {
-    todoTitle: "Design",
-    todoResponsible: "Alain",
-    todoDescription: "Todo description",
-    todoPriority: "medium"
-  }
-];
+// let todos = [
+//   {
+//     todoTitle: "Refactor",
+//     todoResponsible: "Victor",
+//     todoDescription: "Todo description",
+//     todoPriority: "low"
+//   },
+//   {
+//     todoTitle: "Design",
+//     todoResponsible: "Alain",
+//     todoDescription: "Todo description",
+//     todoPriority: "medium"
+//   }
+// ];
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos,
+      // todos,
       tasks: []
     };
     this.handleAddTodo = this.handleAddTodo.bind(this);
@@ -28,10 +28,10 @@ class App extends Component {
   }
   componentWillMount() {
     // this.props.createTasks();
-    // this.props.getTasks();
+    this.props.getTasks();
     // this.props.deleteTasks();
     // this.props.createUsers();
-    this.props.deleteUsers();
+    // this.props.deleteUsers();
   }
 
   componentDidUpdate() {
@@ -120,38 +120,5 @@ class App extends Component {
     );
   }
 }
-
-// <div className="ui-g-12">
-//   {this.state.userStripe &&
-//     this.state.userStripe.subscriptions.data.length > 0 &&
-//     this.state.planlist.map(plan => {
-//       console.log(plan);
-//       if (this.state.userStripe.subscriptions.data[0].plan.id !== plan.id) {
-//         return (
-//           <div key={plan.id} className="ui-g-4 ui-md-12 ui-lg-6 pricing-list">
-//             <div className="ui-card-shadow">
-//               <div className="pricing-title">{plan.name}</div>
-//               <div>
-//                 <ul>
-//                   <li className="pricing-cost">$ {plan.amount / 100}</li>
-//                   <li> {plan.metadata.syncs_limit} Synchs</li>
-//                   {plan.metadata.execution_limit}
-//                   <li>Executions</li>
-//                 </ul>
-//               </div>
-//               <button
-//                 className="primary-button"
-//                 onClick={() => this.updatePlan(plan.id)}
-//                 disabled={this.state.userStripe.sources.data.length === 0}
-//               >
-//                 <i className="fa fa-check mr-5" />
-//                 Update plan!
-//               </button>
-//             </div>
-//           </div>
-//         );
-//       }
-//     })}
-// </div>;
 
 export default App;

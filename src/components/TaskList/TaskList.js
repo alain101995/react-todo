@@ -27,11 +27,7 @@ class TaskList extends Component {
     this.handleRemoveTodo = this.handleRemoveTodo.bind(this);
   }
   componentWillMount() {
-    // this.props.createTasks();
     // this.props.getTasks();
-    // this.props.deleteTasks();
-    // this.props.createUsers();
-    this.props.deleteUsers();
   }
 
   componentDidUpdate() {
@@ -48,11 +44,6 @@ class TaskList extends Component {
     console.log("State tasks", this.state.tasks);
   }
 
-  handleAddTodo(todo) {
-    this.setState({ todos: [...this.state.todos, todo] });
-    console.log("New todos", this.state.todos);
-  }
-
   handleRemoveTodo(index) {
     this.setState({
       todos: this.state.todos.filter((e, i) => {
@@ -63,33 +54,6 @@ class TaskList extends Component {
 
   render() {
     return (
-      // <div className="container">
-      //   <TodoInput onAddTodo={this.handleAddTodo} />
-      //   <hr />
-      //   <h4>
-      //     Todo Count: <span>{this.state.tasks.length}</span>
-      //   </h4>
-      //   <ul>
-      //     {this.state.todos.map((todo, index) => (
-      //       <li className="list-group-item" key={index}>
-      //         <h4>
-      //           {todo.todoTitle}{" "}
-      //           <small>
-      //             <span>{todo.todoPriority}</span>
-      //           </small>
-      //         </h4>
-      //         <p>
-      //           <span aria-hidden="true" /> {todo.todoResponsible}
-      //         </p>
-      //         <p>{todo.todoDescription}</p>
-      //         <button onClick={() => this.handleRemoveTodo(index)}>
-      //           <span aria-hidden="true" /> Delete
-      //         </button>
-      //       </li>
-      //     ))}
-      //   </ul>
-      //   <hr />
-      // </div>
       <div className="container">
         <TodoInput onAddTodo={this.handleAddTodo} />
         <hr />
