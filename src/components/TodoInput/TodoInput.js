@@ -4,11 +4,13 @@ class TodoInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // userData: {
       todoTitle: "",
       todoResponsible: "",
       todoDescription: "",
       todoPriority: "Lowest",
       tasks: ""
+      // }
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,6 +19,7 @@ class TodoInput extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
+    console.log("NAME", name);
     // this.setState({ [event.target.name]: event.target.value })
     // console.log("Target values", event.target.name, event.target.value);
     this.setState({ [name]: value });

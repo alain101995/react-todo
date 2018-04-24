@@ -6,6 +6,7 @@ import createHistory from "history/createBrowserHistory";
 // import rootReducer from "./reducers";
 import App from "./containers/App";
 import Users from "./components/Users/Users";
+import TodoInput from "./components/TodoInput/TodoInput";
 import configureStore from "./configureStore";
 export const history = createHistory();
 const store = configureStore({});
@@ -16,6 +17,7 @@ render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route exact path="/users" component={Users} />
+        <Route exact path="/todoinput" component={TodoInput} />
       </Switch>
     </Router>
   </Provider>,

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Users.css";
 
+let localEmails = [];
+// let localPhones = [];
 class Users extends Component {
   constructor(props) {
     super(props);
@@ -12,21 +14,54 @@ class Users extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    // this.setState({ [event.target.name]: event.target.value })
-    // console.log("Target values", event.target.name, event.target.value);
-    this.setState({ [name]: value });
-  }
-
   componentDidUpdate() {
-    console.log(this.state.todoTitle);
+    console.log(this.state.emails);
+    console.log("Local emails", localEmails);
   }
 
   addToForm() {
     console.log("Added Email or Phone");
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    console.log("NAME", name);
+    // this.setState({ [event.target.name]: event.target.value })
+    // console.log("Target values", event.target.name, event.target.value);
+    if (name === "emails" || name === "phones") {
+      this.setState(prevState => ({
+        [name]: [...prevState.emails, value]
+      }));
+      // localEmails.push(value);
+      // this.state.emails.push(...this.state.emails, value);
+      // console.log("States", this.state);
+    }
+    // else {
+    //   this.setState({ [name]: value });
+    // }
+  }
+
+  addEmail(email) {
+    // console.log("ADD Email", email);
+    // this.setState(prevState => ({
+    //   emails: [...prevState.emails, email]
+    // }));
+    // this.state.emails.push(email);
+    this.setState(prevState => ({
+      emails: [...prevState.emails, localEmails]
+    }));
+    // this.setState(
+    //   prevState => (
+    //     {
+    //       emails: [...prevState.emails, email]
+    //     },
+    //     // prevState = the whole state list
+    //     console.log("prevstate", prevState.emails),
+    //     console.log("New emails", this.state.emails)
+    //   )
+    // );
   }
 
   saveUser() {
@@ -36,11 +71,10 @@ class Users extends Component {
       phones: this.state.phones,
       emails: this.state.emails
     };
+    console.log("User DATA", userData);
     // this.props.createUser(userData);
   }
   render() {
-    let localMails = [];
-    let localPhones = [];
     return (
       <div>
         <h4>Add New User</h4>
@@ -71,18 +105,36 @@ class Users extends Component {
           </div>
         </div>
         <div className="form-group">
-          <label className="col-sm-2 control-label">Phone number</label>
+          <label className="col-sm-2 control-label">Phone</label>
           <div className="col-sm-10">
             <input
-              name="phone"
-              type="number"
+              name="phones"
+              type="text"
               className="form-control"
               value={this.state.todoTitle}
               onChange={this.handleInputChange}
-              placeholder="Phone number"
+              placeholder="+1 (999) 999 9999"
             />
-            <button className="mt-3" onClick={this.addToForm()}>
-              Add Phone
+            {/* {this.state.phones.map(phones => {
+              return (
+                <div>
+                  <h1>{phones}</h1>
+                  <span className="input-group-btn">
+                    <button
+                      className="btn btn-danger btn-remove-phone"
+                      type="button"
+                    >
+                      <span className="glyphicon glyphicon-remove-circle" />
+                    </button>
+                  </span>
+                </div>
+              );
+            })} */}
+            <button
+              type="button"
+              className="btn btn-success btn-sm btn-add-phone"
+            >
+              <span className="glyphicon glyphicon-plus" /> Add Phone
             </button>
           </div>
         </div>
@@ -90,15 +142,34 @@ class Users extends Component {
           <label className="col-sm-2 control-label">Email</label>
           <div className="col-sm-10">
             <input
-              name="email"
-              type="email"
+              name="emails"
+              type="text"
               className="form-control"
               value={this.state.todoTitle}
               onChange={this.handleInputChange}
-              placeholder="Email"
+              placeholder="example@mail.com"
             />
-            <button className="mt-3" onClick={this.addToForm()}>
-              Add Email
+            {/* {this.state.emails.map((email, index) => {
+              return (
+                <div key={index}>
+                  <h1>{email}</h1>
+                  <span className="input-group-btn">
+                    <button
+                      className="btn btn-danger btn-remove-phone"
+                      type="button"
+                    >
+                      <span className="glyphicon glyphicon-remove-circle" />
+                    </button>
+                  </span>
+                </div>
+              );
+            })} */}
+            <button
+              type="button"
+              className="btn btn-success btn-sm btn-add-phone"
+              onClick={() => this.addEmail(this.state.emails)}
+            >
+              <span className="glyphicon glyphicon-plus" /> Add Email
             </button>
           </div>
         </div>
@@ -107,11 +178,6 @@ class Users extends Component {
             <button>Add User</button>
           </div>
         </div>
-        {/* <span class="input-group-btn">
-          <button class="btn btn-danger btn-remove-phone" type="button">
-            <span class="glyphicon glyphicon-remove-circle" />
-          </button>
-        </span> */}
       </div>
     );
   }
