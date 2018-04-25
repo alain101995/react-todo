@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Users.css";
 
-let localEmails = [];
+let localEmails = "";
 // let localPhones = [];
 class Users extends Component {
   constructor(props) {
@@ -27,13 +27,13 @@ class Users extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    console.log("NAME", name);
     // this.setState({ [event.target.name]: event.target.value })
     // console.log("Target values", event.target.name, event.target.value);
     if (name === "emails" || name === "phones") {
       this.setState(prevState => ({
-        [name]: [...prevState.emails, value]
+        [name]: [...prevState["emails"], value]
       }));
+
       // localEmails.push(value);
       // this.state.emails.push(...this.state.emails, value);
       // console.log("States", this.state);
