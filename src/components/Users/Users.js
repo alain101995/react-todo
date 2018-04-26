@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Users.css";
 
 let localEmails = "";
-// let localPhones = [];
+let localPhones = [];
 class Users extends Component {
   constructor(props) {
     super(props);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Users.css";
 
 let localPhones = [];
+let localEmails = [];
 class Users1 extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,7 @@ class Users1 extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
   }
   handleSubmit(event) {
     console.log("A name was submitted: ", this.state);
@@ -23,14 +25,22 @@ class Users1 extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
   handlePhone() {
-    localPhones.push("Local phone");
+    console.log("REF Phone", this.refs.phoneRef.value);
+    localPhones.push(this.refs.phoneRef.value);
     console.log("Local phones", localPhones);
     this.setState({
       phones: localPhones
     });
   }
+  handleEmail() {
+    localEmails.push(this.refs.emailRef.value);
+    console.log("Local emails", localEmails);
+    this.setState({
+      emails: localEmails
+    });
+  }
   componentDidUpdate() {
-    console.log("State phone email", this.state.emails, this.state.phones);
+    // console.log("State phone email", this.state.emails, this.state.phones);
   }
   dataToSend() {
     const userData = {
@@ -62,6 +72,7 @@ class Users1 extends Component {
             onChange={this.handleChange}
           />
         </label>
+
         <label>
           Phone:
           <input
@@ -71,20 +82,26 @@ class Users1 extends Component {
             // value={this.state.phones}
             onChange={this.handleChange}
           />
+          <button type="button" onClick={this.handlePhone}>
+            Save phone
+          </button>
         </label>
+
         <label>
-          Email:
+          Emails:
           <input
+            ref="emailRef"
             type="text"
             name="emails"
-            value={this.state.emails}
+            // value={this.state.phones}
             onChange={this.handleChange}
           />
+          <button type="button" onClick={this.handleEmail}>
+            Save email
+          </button>
         </label>
+
         <input type="submit" value="Submit" />
-        <button type="button" onClick={this.handlePhone}>
-          Save phone
-        </button>
       </form>
     );
   }
