@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./TodoInput.css";
+import { Link } from "react-router-dom";
 class TodoInput extends Component {
   constructor(props) {
     super(props);
@@ -42,6 +43,7 @@ class TodoInput extends Component {
   render() {
     return (
       <div>
+        <Link to="/users">Add User</Link>
         <h4>Add New Todo</h4>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">

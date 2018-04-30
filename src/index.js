@@ -18,7 +18,7 @@ render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route exact path="/users" component={Users} />
-        <Route exact path="/users1" component={Users1} />
+        {/* <Route exact path="/users1" component={Users1} /> */}
         <Route exact path="/todoinput" component={TodoInput} />
       </Switch>
     </Router>

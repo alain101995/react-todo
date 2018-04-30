@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Users.css";
 
-let localPhones = [];
-let localEmails = [];
+const localPhones = [];
+const localEmails = [];
 class Users1 extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +23,11 @@ class Users1 extends Component {
   }
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
+    console.log(
+      "event.target.name]: event.target.value ",
+      event.target.name,
+      event.target.value
+    );
   }
   handlePhone() {
     console.log("REF Phone", this.refs.phoneRef.value);
