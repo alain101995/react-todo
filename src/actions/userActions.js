@@ -5,13 +5,6 @@ import {
   DELETE_USERS
 } from "../constants/actionTypes";
 
-const userData = {
-  // taskID: 1,
-  firstName: "Alain",
-  lastName: "Quiroz",
-  phones: ["3471857195", "7541915091"],
-  emails: ["alain@mail.com", "victor@correo.com"]
-};
 const userID = {
   _id: "5ada5526f335a40eaca0ec2c"
 };
@@ -28,7 +21,8 @@ export const getUsers = () => {
   };
 };
 
-export const createUsers = () => {
+export const createUsers = userData => {
+  console.log("User Data, HERE", userData);
   return (dispatch, getState) => {
     axios
       .post("http://localhost:3000/api/users", { userData })
@@ -41,7 +35,6 @@ export const createUsers = () => {
 
 export const deleteUsers = () => {
   return (dispatch, getState) => {
-    console.log("HEREQPOUWHECWER", userID);
     axios
       .delete("http://localhost:3000/api/users", { data: { userID } })
       .then(response => {

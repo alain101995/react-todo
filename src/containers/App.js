@@ -17,18 +17,18 @@ const mapDispatchToProps = dispatch => {
     createTasks: () => {
       dispatch(actions.createTasks());
     },
-    deleteTasks: () => {
-      dispatch(actions.deleteTasks());
-    },
-    getUsers: () => {
-      dispatch(actions.getUsers());
-    },
-    createUsers: () => {
-      dispatch(actions.createUsers());
-    },
-    deleteUsers: () => {
-      dispatch(actions.deleteUsers());
+    deleteTasks: taskID => {
+      dispatch(actions.deleteTasks(taskID));
     }
+    // getUsers: () => {
+    //   dispatch(actions.getUsers());
+    // },
+    // createUsers: () => {
+    //   dispatch(actions.createUsers());
+    // },
+    // deleteUsers: () => {
+    //   dispatch(actions.deleteUsers());
+    // }
   };
 };
 

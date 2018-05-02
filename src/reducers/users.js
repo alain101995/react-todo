@@ -14,17 +14,17 @@ export const Tasks = (state = {}, action) => {
       console.log("STATE ACTION", ...state, action.payload);
       return {
         ...state,
-        tasks: [...state, action.payload]
+        users: [...state, action.payload]
       };
     case CREATE_USERS:
       return {
         ...state,
-        taskCreated: [...state, action.payload]
+        userCreated: [...state, action.payload]
       };
     case DELETE_USERS:
       return {
         ...state,
-        taskCreated: [...state, action.payload]
+        userDeleted: [...state, action.payload]
       };
     default:
       return state;

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./Users.css";
 import { Link } from "react-router-dom";
-// const localPhones = [];
-// const localEmails = [];
+
 class Users extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +19,10 @@ class Users extends Component {
     this.handleEmail = this.handleEmail.bind(this);
   }
 
+  componentDidMount() {
+    console.log("Users props", this.props);
+    this.props.getUsers();
+  }
   componentDidUpdate() {
     console.log("This state", this.state);
   }
@@ -31,7 +34,8 @@ class Users extends Component {
       phones: this.state.phones,
       emails: this.state.emails
     };
-    console.log("User DATA", userData);
+    console.log("User to send data", userData);
+    this.props.createUser(userData);
     event.preventDefault();
   }
 
@@ -65,21 +69,16 @@ class Users extends Component {
       emails: this.state.localEmails
     });
   }
-
-  saveUser() {
-    // this.props.createUser(userData);
-  }
   render() {
     return (
       <div>
-        <Link to="/todoinput">Todo Input</Link>
+        <Link to="/">Todo Input</Link>
         <form onSubmit={this.handleSubmit}>
           <h4>Add New User</h4>
           <div className="form-group">
             <label className="col-sm-2 control-label">First Name</label>
             <div className="col-sm-10">
               <input
-                name="firstName"
                 type="text"
                 className="form-control"
                 value={this.state.todoTitle}
@@ -93,7 +92,6 @@ class Users extends Component {
             <label className="col-sm-2 control-label">Last Name</label>
             <div className="col-sm-10">
               <input
-                name="lastName"
                 type="text"
                 className="form-control"
                 value={this.state.todoTitle}
@@ -107,7 +105,6 @@ class Users extends Component {
             <label className="col-sm-2 control-label">Phone</label>
             <div className="col-sm-10">
               <input
-                name="phones"
                 ref="phoneRef"
                 type="text"
                 className="form-control"
@@ -143,9 +140,8 @@ class Users extends Component {
             <label className="col-sm-2 control-label">Email</label>
             <div className="col-sm-10">
               <input
-                name="emails"
                 ref="emailRef"
-                type="text"
+                type="email"
                 className="form-control"
                 value={this.state.todoTitle}
                 onChange={this.handleInputChange}

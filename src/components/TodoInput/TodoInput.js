@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./TodoInput.css";
 import { Link } from "react-router-dom";
+import "./TodoInput.css";
 class TodoInput extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +10,7 @@ class TodoInput extends Component {
       todoResponsible: "",
       todoDescription: "",
       todoPriority: "Lowest",
+      dueDate: "",
       tasks: ""
       // }
     };
@@ -21,7 +22,7 @@ class TodoInput extends Component {
     const value = target.value;
     const name = target.name;
     console.log("NAME", name);
-    // this.setState({ [event.target.name]: event.target.value })
+    // this.setState({ [event.target.name]: event.target.value });
     // console.log("Target values", event.target.name, event.target.value);
     this.setState({ [name]: value });
   }
@@ -99,6 +100,16 @@ class TodoInput extends Component {
                 <option>High</option>
                 <option>Highest</option>
               </select>
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="col-sm-2 control-label">Due Date</label>
+            <div className="col-sm-10">
+              <input
+                type="date"
+                className="form-control"
+                onChange={this.handleInputChange}
+              />
             </div>
           </div>
           <div className="form-group">

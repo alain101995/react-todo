@@ -16,10 +16,6 @@ const taskData = {
   completed: false
 };
 
-const taskID = {
-  _id: "5ada1b0e2bf6cd0655dfae5c"
-};
-
 export const getTasks = () => {
   return (dispatch, getState) => {
     axios
@@ -42,7 +38,8 @@ export const createTasks = () => {
   };
 };
 
-export const deleteTasks = () => {
+export const deleteTasks = taskID => {
+  console.log("TASKUDQWER", taskID);
   return (dispatch, getState) => {
     axios
       .delete("http://localhost:3000/api/tasks", { data: { taskID } })

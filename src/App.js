@@ -30,8 +30,6 @@ class App extends Component {
     // this.props.createTasks();
     this.props.getTasks();
     // this.props.deleteTasks();
-    // this.props.createUsers();
-    // this.props.deleteUsers();
   }
 
   componentDidUpdate() {
@@ -53,9 +51,12 @@ class App extends Component {
     console.log("New todos", this.state.todos);
   }
 
-  handleRemoveTodo(index) {
+  handleRemoveTodo(index, taskID) {
+    console.log("INDEX", index, taskID);
+    this.props.deleteTasks(taskID);
     this.setState({
       todos: this.state.todos.filter((e, i) => {
+        console.log("e", e);
         return i !== index;
       })
     });
@@ -63,33 +64,6 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <TodoInput onAddTodo={this.handleAddTodo} />
-        <hr />
-        <h4>
-          Todo Count: <span>{this.state.tasks.length}</span>
-        </h4>
-        <ul>
-          {this.state.todos.map((todo, index) => (
-            <li className="list-group-item" key={index}>
-              <h4>
-                {todo.todoTitle}{" "}
-                <small>
-                  <span>{todo.todoPriority}</span>
-                </small>
-              </h4>
-              <p>
-                <span aria-hidden="true" /> {todo.todoResponsible}
-              </p>
-              <p>{todo.todoDescription}</p>
-              <button onClick={() => this.handleRemoveTodo(index)}>
-                <span aria-hidden="true" /> Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-        <hr />
-      </div>
       // <div className="container">
       //   <TodoInput onAddTodo={this.handleAddTodo} />
       //   <hr />
@@ -97,18 +71,18 @@ class App extends Component {
       //     Todo Count: <span>{this.state.tasks.length}</span>
       //   </h4>
       //   <ul>
-      //     {this.state.tasks.map((task, index) => (
+      //     {this.state.todos.map((todo, index) => (
       //       <li className="list-group-item" key={index}>
       //         <h4>
-      //           {task.title}{" "}
+      //           {todo.todoTitle}{" "}
       //           <small>
-      //             <span>{task.priority}</span>
+      //             <span>{todo.todoPriority}</span>
       //           </small>
       //         </h4>
       //         <p>
-      //           <span aria-hidden="true" /> {task.userID}
+      //           <span aria-hidden="true" /> {todo.todoResponsible}
       //         </p>
-      //         <p>{task.description}</p>
+      //         <p>{todo.todoDescription}</p>
       //         <button onClick={() => this.handleRemoveTodo(index)}>
       //           <span aria-hidden="true" /> Delete
       //         </button>
@@ -117,6 +91,33 @@ class App extends Component {
       //   </ul>
       //   <hr />
       // </div>
+      <div className="container">
+        <TodoInput onAddTodo={this.handleAddTodo} />
+        <hr />
+        <h4>
+          Todo Count: <span>{this.state.tasks.length}</span>
+        </h4>
+        <ul>
+          {this.state.tasks.map((task, index) => (
+            <li className="list-group-item" key={index}>
+              <h4>
+                {task.title}{" "}
+                <small>
+                  <span>{task.priority}</span>
+                </small>
+              </h4>
+              <p>
+                <span aria-hidden="true" /> {task.userID}
+              </p>
+              <p>{task.description}</p>
+              <button onClick={() => this.handleRemoveTodo(index, task._id)}>
+                <span aria-hidden="true" /> Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+        <hr />
+      </div>
     );
   }
 }
