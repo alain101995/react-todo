@@ -14,7 +14,6 @@ export const getUsers = () => {
     axios
       .get("http://localhost:3000/api/users")
       .then(response => {
-        console.log("USER LIST", response);
         dispatch({ type: SHOW_USERS, payload: response.data.data });
       })
       .catch(err => console.log(err));
@@ -22,7 +21,6 @@ export const getUsers = () => {
 };
 
 export const createUsers = userData => {
-  console.log("User Data, HERE", userData);
   return (dispatch, getState) => {
     axios
       .post("http://localhost:3000/api/users", { userData })

@@ -5,16 +5,16 @@ import {
   DELETE_TASKS
 } from "../constants/actionTypes";
 
-const taskData = {
-  // userID: 1,
-  title: "To code",
-  description: "Code",
-  priority: "Low",
-  dueDate: "2018-12-22T08:15:00Z",
-  createdDate: "2017-12-22T08:15:00Z",
-  completedDate: "2018-11-22T08:15:00Z",
-  completed: false
-};
+// const taskData = {
+//   // userID: 1,
+//   title: "To code",
+//   description: "Code",
+//   priority: "Low",
+//   dueDate: "2018-12-22T08:15:00Z",
+//   createdDate: "2017-12-22T08:15:00Z",
+//   completedDate: "2018-11-22T08:15:00Z",
+//   completed: false
+// };
 
 export const getTasks = () => {
   return (dispatch, getState) => {
@@ -27,7 +27,8 @@ export const getTasks = () => {
   };
 };
 
-export const createTasks = () => {
+export const createTasks = taskData => {
+  console.log("TASK DATA ACTION", taskData);
   return (dispatch, getState) => {
     axios
       .post("http://localhost:3000/api/tasks", { taskData })

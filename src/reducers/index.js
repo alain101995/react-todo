@@ -1,9 +1,10 @@
 import { combineReducers } from "redux";
 import { Tasks } from "./tasks";
-// import { users } from "./users";
+import { Users } from "./users";
 
 const rootReducer = combineReducers({
-  Tasks
+  Tasks,
+  Users
 });
 
 export default rootReducer;

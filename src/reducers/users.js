@@ -8,10 +8,9 @@ import {
 //   articles: []
 // };
 
-export const Tasks = (state = {}, action) => {
+export const Users = (state = {}, action) => {
   switch (action.type) {
     case SHOW_USERS:
-      console.log("STATE ACTION", ...state, action.payload);
       return {
         ...state,
         users: [...state, action.payload]

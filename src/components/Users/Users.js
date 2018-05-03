@@ -43,14 +43,17 @@ class Users extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
+    console.log("NAME", name);
     // this.setState({ [event.target.name]: event.target.value })
     // console.log("Target values", event.target.name, event.target.value);
     if (name === "emails" || name === "phones") {
       // this.setState(prevState => ({
       //   [name]: [...prevState["emails"], value]
       // }));
+      console.log("HErre");
       this.setState({ [event.target.name]: event.target.value });
     } else {
+      console.log("EHRQEr");
       this.setState({ [name]: value });
     }
   }
@@ -81,6 +84,7 @@ class Users extends Component {
               <input
                 type="text"
                 className="form-control"
+                name="firstName"
                 value={this.state.todoTitle}
                 onChange={this.handleInputChange}
                 placeholder="First Name"
@@ -94,6 +98,7 @@ class Users extends Component {
               <input
                 type="text"
                 className="form-control"
+                name="lastName"
                 value={this.state.todoTitle}
                 onChange={this.handleInputChange}
                 placeholder="Last Name"
@@ -107,6 +112,7 @@ class Users extends Component {
               <input
                 ref="phoneRef"
                 type="text"
+                name="phones"
                 className="form-control"
                 value={this.state.todoTitle}
                 onChange={this.handleInputChange}
@@ -142,6 +148,7 @@ class Users extends Component {
               <input
                 ref="emailRef"
                 type="email"
+                name="emails"
                 className="form-control"
                 value={this.state.todoTitle}
                 onChange={this.handleInputChange}
@@ -155,6 +162,7 @@ class Users extends Component {
                       <button
                         className="btn btn-danger btn-remove-phone"
                         type="button"
+                        // onClick={this.state.localEmails.splice(index)}
                       >
                         <span className="glyphicon glyphicon-remove-circle" />
                       </button>

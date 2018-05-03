@@ -4,9 +4,7 @@ import * as actions from "../actions/index";
 
 const mapStateToProps = state => {
   const tasks = state;
-  return {
-    tasks
-  };
+  return { tasks };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -14,15 +12,16 @@ const mapDispatchToProps = dispatch => {
     getTasks: () => {
       dispatch(actions.getTasks());
     },
-    createTasks: () => {
-      dispatch(actions.createTasks());
+    getUsers: () => {
+      dispatch(actions.getUsers());
+    },
+    createTasks: taskData => {
+      console.log("TASK DATA CONTAINER", taskData);
+      dispatch(actions.createTasks(taskData));
     },
     deleteTasks: taskID => {
       dispatch(actions.deleteTasks(taskID));
     }
-    // getUsers: () => {
-    //   dispatch(actions.getUsers());
-    // },
     // createUsers: () => {
     //   dispatch(actions.createUsers());
     // },
