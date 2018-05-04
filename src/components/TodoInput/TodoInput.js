@@ -63,7 +63,7 @@ class TodoInput extends Component {
                 value={this.state.title}
                 onChange={this.handleInputChange}
                 placeholder="Title"
-                required
+                // required
               />
             </div>
           </div>
@@ -76,7 +76,7 @@ class TodoInput extends Component {
                 value={this.state.todoResponsible}
                 onChange={this.handleInputChange}
                 placeholder="Responsible"
-                required
+                // required
               >
                 {this.props.users &&
                   this.props.users.map((user, index) => {
@@ -94,7 +94,7 @@ class TodoInput extends Component {
                 rows="2"
                 value={this.state.description}
                 onChange={this.handleInputChange}
-                required
+                // required
               />
             </div>
           </div>
@@ -106,7 +106,7 @@ class TodoInput extends Component {
                 className="form-control"
                 value={this.state.priority}
                 onChange={this.handleInputChange}
-                required
+                // required
               >
                 <option>Lowest</option>
                 <option>Low</option>
@@ -125,7 +125,7 @@ class TodoInput extends Component {
                 className="form-control"
                 // min={new Date().getDate()}
                 onChange={this.handleInputChange}
-                required
+                // required
               />
             </div>
           </div>

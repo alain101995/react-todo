@@ -1,26 +1,12 @@
 import React, { Component } from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
 import "./App.css";
-// let todos = [
-//   {
-//     todoTitle: "Refactor",
-//     todoResponsible: "Victor",
-//     todoDescription: "Todo description",
-//     todoPriority: "low"
-//   },
-//   {
-//     todoTitle: "Design",
-//     todoResponsible: "Alain",
-//     todoDescription: "Todo description",
-//     todoPriority: "medium"
-//   }
-// ];
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
+      // todos: [],
       tasks: [],
       users: []
     };
@@ -33,7 +19,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    // console.log("State tasks", this.state.users);
+    console.log("State tasks", this.state.tasks);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -52,17 +38,17 @@ class App extends Component {
   handleAddTodo(todo) {
     console.log("TODO SPECS", todo);
     this.props.createTasks(todo);
-    // this.forceUpdate();
-    this.setState({ todos: [...this.state.todos, todo] });
-    console.log("New todos", this.state.todos);
+    this.setState({ tasks: [...this.state.tasks, todo] });
+    console.log("New todos", this.state.tasks);
   }
 
   handleRemoveTodo(index, taskID) {
     console.log("Index", index, taskID);
-    this.props.deleteTasks(taskID);
+    console.log("Todos and tasks", this.state.tasks, this.state.todos);
+    // this.props.deleteTasks(taskID);
     this.setState({
-      todos: this.state.todos.filter((e, i) => {
-        console.log("e", e);
+      tasks: this.state.tasks.filter((e, i) => {
+        // this.props.deleteTasks();
         return i !== index;
       })
     });

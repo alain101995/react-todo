@@ -16,7 +16,6 @@ const mapDispatchToProps = dispatch => {
       dispatch(actions.getUsers());
     },
     createTasks: taskData => {
-      console.log("TASK DATA CONTAINER", taskData);
       dispatch(actions.createTasks(taskData));
     },
     deleteTasks: taskID => {
