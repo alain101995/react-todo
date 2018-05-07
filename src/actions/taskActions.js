@@ -28,7 +28,6 @@ export const getTasks = () => {
 };
 
 export const createTasks = taskData => {
-  console.log("TASK DATA ACTION", taskData);
   return (dispatch, getState) => {
     axios
       .post("http://localhost:3000/api/tasks", { taskData })
@@ -40,7 +39,6 @@ export const createTasks = taskData => {
 };
 
 export const deleteTasks = taskID => {
-  console.log("TASKUDQWER", taskID);
   return (dispatch, getState) => {
     axios
       .delete("http://localhost:3000/api/tasks", { data: { taskID } })

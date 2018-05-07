@@ -20,6 +20,7 @@ class App extends Component {
 
   componentDidUpdate() {
     console.log("State tasks", this.state.tasks);
+    this.props.getTasks();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -45,18 +46,23 @@ class App extends Component {
   handleRemoveTodo(index, taskID) {
     console.log("Index", index, taskID);
     console.log("Todos and tasks", this.state.tasks, this.state.todos);
-    // this.props.deleteTasks(taskID);
+    // this.props.deleteTasks(taskID)
+    // this.setState({
+    //   tasks: [...this.state.tasks].splice(index)
+    // })
+    // this.props.deleteTasks(taskID)
     this.setState({
       tasks: this.state.tasks.filter((e, i) => {
-        // this.props.deleteTasks();
         return i !== index;
       })
-    });
+    })
+
+    this.props.deleteTasks(taskID)
   }
 
   render() {
     return (
-      <div className="container">
+      <div className="container" >
         <TodoInput onAddTodo={this.handleAddTodo} users={this.state.users} />
         <hr />
         <h4>

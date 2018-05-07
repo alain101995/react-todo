@@ -7,7 +7,7 @@ class TodoInput extends Component {
     this.state = {
       // userData: {
       title: "",
-      todoResponsible: "", // Fix this one on backend
+      todoResponsible: "",
       description: "",
       priority: "Lowest",
       createdDate: new Date(),
