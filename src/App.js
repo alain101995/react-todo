@@ -20,7 +20,7 @@ class App extends Component {
 
   componentDidUpdate() {
     console.log("State tasks", this.state.tasks);
-    this.props.getTasks();
+    // this.props.getTasks();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -55,14 +55,14 @@ class App extends Component {
       tasks: this.state.tasks.filter((e, i) => {
         return i !== index;
       })
-    })
+    });
 
-    this.props.deleteTasks(taskID)
+    this.props.deleteTasks(taskID);
   }
 
   render() {
     return (
-      <div className="container" >
+      <div className="container">
         <TodoInput onAddTodo={this.handleAddTodo} users={this.state.users} />
         <hr />
         <h4>
@@ -97,7 +97,12 @@ class App extends Component {
                 <span aria-hidden="true" /> {task.userID}
               </p>
               <p>{task.description}</p>
-              <button onClick={() => this.handleRemoveTodo(index, task._id)}>
+              <button
+                onClick={() => {
+                  this.handleRemoveTodo(index, task._id);
+                  this.props.getTasks();
+                }}
+              >
                 <span aria-hidden="true" /> Delete
               </button>
             </li>
